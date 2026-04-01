@@ -1,10 +1,18 @@
 #!/bin/bash
 sudo -i
 
+#only on the
+
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update
+
+#only on the pysical machine :
+apt-get install metacity xterm nvidia-headless-590 nvidia-utils-590
+
 cd /tmp
+
+
 
 wget -q https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
 gpg --import NICE-GPG-KEY
@@ -32,3 +40,6 @@ cat <<EOF > init.sh
 EOF
 
 dcv create-session test --owner=ubuntu --user=ubuntu --storage-root=/home/ubuntu --gl on --init init.sh
+
+# RayON dependencies
+apt-get install -y cmake nvidia-cuda-toolkit clang libsdl2-dev libsdl2-ttf-dev imagemagick
